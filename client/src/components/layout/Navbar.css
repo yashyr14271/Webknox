@@ -1,0 +1,238 @@
+.navbar {
+    background: var(--bg-nav);
+    backdrop-filter: blur(10px);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar-logo {
+    color: var(--primary-color);
+    justify-self: start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-family: 'Silkscreen', cursive;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    height: 80px;
+}
+
+.nav-links {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1.5rem;
+    height: 100%;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links:hover {
+    color: var(--primary-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+}
+
+.nav-auth-desktop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-login {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--border-color);
+}
+
+.btn-login:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-signup {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-signup:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.welcome-text {
+    font-weight: 600;
+    margin-right: 10px;
+    color: var(--text-color);
+}
+
+.btn-logout {
+    padding: 8px 16px;
+    border: 1px solid var(--error);
+    color: var(--error);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-logout:hover {
+    background-color: var(--error);
+    color: var(--white);
+}
+
+.mobile-logout {
+    cursor: pointer;
+    color: var(--error) !important;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .NavbarItems {
+        position: relative;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90vh;
+        /* Adjust if needed */
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        background: var(--bg-nav);
+        z-index: 998;
+    }
+
+    .nav-menu.active {
+        background: var(--bg-nav);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--text-color);
+        z-index: 1000;
+        padding: 10px;
+    }
+
+    .nav-auth-desktop {
+        display: none;
+    }
+
+    .nav-links-mobile {
+        display: block;
+        text-align: center;
+        margin: 2rem auto;
+        border-radius: 4px;
+        width: 80%;
+        text-decoration: none;
+        font-size: 1.2rem;
+        background-color: transparent;
+        color: var(--text-color);
+        padding: 14px 20px;
+        border: 1px solid var(--primary-color);
+        transition: all 0.3s ease-out;
+    }
+
+    .nav-links-mobile:hover {
+        background: var(--primary-color);
+        color: var(--white);
+        transition: 250ms;
+    }
+
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .signup-mobile {
+        background: var(--primary-color) !important;
+        color: var(--white) !important;
+        border-radius: var(--radius-sm);
+        margin: 10px 20px;
+        padding: 10px !important;
+    }
+
+    .nav-menu.active {
+        overflow-y: auto;
+        padding-bottom: 2rem;
+    }
+}

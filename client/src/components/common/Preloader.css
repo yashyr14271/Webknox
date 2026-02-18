@@ -1,0 +1,81 @@
+.preloader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    /* Or your theme background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.preloader-container.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* SVG Animations */
+.w-logo-path {
+    fill: none;
+    stroke-width: 20;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawW 2s ease-in-out forwards;
+}
+
+/* Gradient definitions in JSX usually, but we can reference IDs */
+
+@keyframes drawW {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.text-container {
+    font-family: 'Inter', sans-serif;
+    /* Setup font if not available */
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    color: var(--text-color);
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInText 1s ease-out forwards 1.0s;
+    /* Start after W starts drawing */
+}
+
+@keyframes slideInText {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 50%;
+    margin-left: 5px;
+    transform: scale(0);
+    animation: popInDot 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 2.0s;
+}
+
+@keyframes popInDot {
+    to {
+        transform: scale(1);
+    }
+}
