@@ -37,7 +37,7 @@ const GlitchTransition = ({ children }) => {
     return (
         <div className="transition-wrapper">
             <div className={`transition-content ${transitionStage !== 'idle' ? 'blur' : ''}`}>
-                {children}
+                {React.cloneElement(children, { location: displayLocation })}
             </div>
 
             {transitionStage !== 'idle' && (
