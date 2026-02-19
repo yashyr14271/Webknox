@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa'; // Using FontAwesome icons
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -40,24 +40,24 @@ const Navbar = () => {
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className="nav-item">
-                        <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                        <NavLink to="/" className="nav-links" onClick={closeMobileMenu}>
                             Home
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
+                        <NavLink to="/about" className="nav-links" onClick={closeMobileMenu}>
                             Our Team
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to="/services" className="nav-links" onClick={closeMobileMenu}>
+                        <NavLink to="/services" className="nav-links" onClick={closeMobileMenu}>
                             Services
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
+                        <NavLink to="/contact" className="nav-links" onClick={closeMobileMenu}>
                             Contact
-                        </Link>
+                        </NavLink>
                     </li>
 
                     {/* Mobile Only Actions */}
@@ -70,9 +70,9 @@ const Navbar = () => {
                     {user ? (
                         <>
                             <li className="nav-item">
-                                <Link to="/dashboard" className="nav-links" onClick={closeMobileMenu}>
+                                <NavLink to="/dashboard" className="nav-links" onClick={closeMobileMenu}>
                                     Dashboard
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
                                 <div className="nav-links mobile-logout" onClick={onLogout}>
@@ -83,14 +83,14 @@ const Navbar = () => {
                     ) : (
                         <>
                             <li className="nav-item mobile-only">
-                                <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+                                <NavLink to="/login" className="nav-links" onClick={closeMobileMenu}>
                                     Login
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item mobile-only">
-                                <Link to="/signup" className="nav-links signup-mobile" onClick={closeMobileMenu}>
+                                <NavLink to="/signup" className="nav-links signup-mobile" onClick={closeMobileMenu}>
                                     Get Started
-                                </Link>
+                                </NavLink>
                             </li>
                         </>
                     )}
