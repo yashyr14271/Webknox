@@ -19,7 +19,7 @@ const GlitchTransition = ({ children }) => {
                 setDisplayLocation(location);
                 setTransitionStage('finishing');
                 prevLocation.current = location.pathname;
-            }, 600); // Duration of glitch covering the screen
+            }, 1000); // Increased duration to slow down
 
             return () => clearTimeout(timer);
         }
@@ -29,7 +29,7 @@ const GlitchTransition = ({ children }) => {
         if (transitionStage === 'finishing') {
             const timer = setTimeout(() => {
                 setTransitionStage('idle');
-            }, 600); // Duration for glitch to fade out
+            }, 800); // Duration for glitch to fade out
             return () => clearTimeout(timer);
         }
     }, [transitionStage]);
