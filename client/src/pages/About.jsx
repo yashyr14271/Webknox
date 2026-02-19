@@ -18,7 +18,7 @@ const About = () => {
             color: '#FFFFFF',
             pos: [0, 0, 0],
             portfolio: '#',
-            instagram: 'yash_frontend'
+            instagram: 'yash_rajput.8797'
         },
         {
             name: 'Ashutosh Bansal',
