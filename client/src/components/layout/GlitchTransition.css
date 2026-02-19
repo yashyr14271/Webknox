@@ -1,0 +1,33 @@
+.transition-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.transition-content {
+    transition: filter 0.5s ease-in-out;
+}
+
+.transition-content.blur {
+    filter: blur(5px);
+}
+
+.glitch-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.glitch-overlay.fade-in {
+    opacity: 1;
+}
+
+.glitch-overlay.fade-out {
+    opacity: 0;
+}
