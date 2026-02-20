@@ -7,17 +7,31 @@ const nodemailer = require('nodemailer');
 exports.submitContact = async (req, res) => {
     try {
         const { name, email, phone, message } = req.body;
+        console.log('Received contact form submission:', { name, email });
 
-        const contact = await Contact.create({
-            name,
-            email,
-            phone,
-            message
-        });
+        let contact;
+        try {
+            contact = await Contact.create({
+                name,
+                email,
+                phone,
+                message
+            });
+            console.log('Contact saved to database.');
+        } catch (dbErr) {
+            console.error('Database Error:', dbErr.message);
+            // We continue to try sending email even if DB fails for now
+        }
 
         // Send Email Notification
+        console.log('Attempting to send email...');
+        console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER);
+        console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
+
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true, // use SSL
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS
@@ -46,15 +60,23 @@ exports.submitContact = async (req, res) => {
             `
         };
 
-        await transporter.sendMail(mailOptions);
+        try {
+            await transporter.sendMail(mailOptions);
+            console.log('✅ Email sent successfully to:', mailOptions.to);
+        } catch (mailErr) {
+            console.error('❌ Nodemailer Error:', mailErr.message);
+            console.error('Full Mail Error:', mailErr);
+            throw new Error(`Email could not be sent. Check if EMAIL_USER and EMAIL_PASS are correct. Error: ${mailErr.message}`);
+        }
 
         res.status(201).json({
             success: true,
+            message: 'Inquiry submitted and email sent!',
             data: contact
         });
     } catch (err) {
-        console.error('Error in submitContact:', err);
-        res.status(400).json({
+        console.error('❌ General Error in submitContact:', err.message);
+        res.status(500).json({
             success: false,
             error: err.message
         });

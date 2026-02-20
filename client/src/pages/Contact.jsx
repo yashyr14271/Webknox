@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import api from '../services/api';
 import './Contact.css';
 import { FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import ComputerModel from '../components/3d/ComputerModel';
 
 const Contact = () => {
+    const [searchParams] = useSearchParams();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -12,6 +14,16 @@ const Contact = () => {
     });
     const [status, setStatus] = useState(null); // null, 'success', 'error'
     const [errorMsg, setErrorMsg] = useState('');
+
+    useEffect(() => {
+        const serviceMessage = searchParams.get('message');
+        if (serviceMessage) {
+            setFormData(prev => ({
+                ...prev,
+                message: serviceMessage
+            }));
+        }
+    }, [searchParams]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,7 +40,9 @@ const Contact = () => {
             }
         } catch (err) {
             setStatus('error');
-            setErrorMsg(err.response?.data?.error || 'Something went wrong');
+            const errorMessage = err.response?.data?.error || err.message || 'Something went wrong';
+            setErrorMsg(errorMessage);
+            console.error('Contact form error:', errorMessage);
         }
     };
 

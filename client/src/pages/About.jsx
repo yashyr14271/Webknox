@@ -10,7 +10,7 @@ const About = () => {
             color: '#FF0000',
             pos: [-4, 0, 0],
             portfolio: '#',
-            instagram: 'abhay_pratap'
+            instagram: 'https://www.instagram.com/_abhay00__/'
         },
         {
             name: 'Yash',
@@ -18,7 +18,7 @@ const About = () => {
             color: '#FFFFFF',
             pos: [0, 0, 0],
             portfolio: '#',
-            instagram: 'yash_rajput.8797'
+            instagram: 'https://instagram.com/yash_rajput.8797'
         },
         {
             name: 'Ashutosh Bansal',
@@ -26,7 +26,7 @@ const About = () => {
             color: '#FF0000',
             pos: [4, 0, 0],
             portfolio: '#',
-            instagram: 'ashutosh_db'
+            instagram: 'https://www.instagram.com/ashutosh_bansal.rar/'
         }
     ];
 
@@ -51,7 +51,7 @@ const About = () => {
                                     <a href={member.portfolio} className="member-link" target="_blank" rel="noopener noreferrer">
                                         Portfolio
                                     </a>
-                                    <a href={`https://instagram.com/${member.instagram}`} className="member-link" target="_blank" rel="noopener noreferrer">
+                                    <a href={member.instagram} className="member-link" target="_blank" rel="noopener noreferrer">
                                         Instagram
                                     </a>
                                 </div>
