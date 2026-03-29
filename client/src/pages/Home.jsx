@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import { FaLaptopCode, FaServer, FaMobileAlt, FaRocket } from 'react-icons/fa';
+import { FaLaptopCode, FaServer, FaMobileAlt, FaShieldAlt, FaChartLine, FaPaintBrush, FaShoppingCart } from 'react-icons/fa';
 import AuroraBackground from '../components/animations/AuroraBackground';
 
 const Home = () => {
@@ -107,8 +107,28 @@ const Home = () => {
                         </div>
                         <div className="service-card">
                             <div className="icon-wrapper"><FaMobileAlt /></div>
-                            <h3>Responsive Design</h3>
-                            <p>Flawless experiences across mobile, tablet, and desktop devices.</p>
+                            <h3>Mobile & SEO Optimized</h3>
+                            <p>Fast-loading, SEO-friendly experiences tailored for flawless performance across mobile devices.</p>
+                        </div>
+                        <div className="service-card">
+                            <div className="icon-wrapper"><FaShieldAlt /></div>
+                            <h3>Authentication & Security</h3>
+                            <p>Secure login architectures, role-based access control, and robust data protection.</p>
+                        </div>
+                        <div className="service-card">
+                            <div className="icon-wrapper"><FaChartLine /></div>
+                            <h3>Leads & Conversions</h3>
+                            <p>Increase leads and revenue through integrated bookings, subscriptions, and payment gateways.</p>
+                        </div>
+                        <div className="service-card">
+                            <div className="icon-wrapper"><FaPaintBrush /></div>
+                            <h3>Modern Animated UI/UX</h3>
+                            <p>Engaging user experiences built with dynamic, custom animations and tailored interfaces.</p>
+                        </div>
+                        <div className="service-card">
+                            <div className="icon-wrapper"><FaShoppingCart /></div>
+                            <h3>Custom E-Commerce</h3>
+                            <p>Fully tailored, high-converting digital storefronts designed precisely to match your brand vision.</p>
                         </div>
                     </div>
                 </div>

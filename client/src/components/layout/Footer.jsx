@@ -5,44 +5,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
     return (
         <div className="footer-container">
-            <div className="footer-links container">
-                <div className="footer-link-wrapper">
-                    <div className="footer-link-items">
-                        <h2>About Us</h2>
-                        <a href="/about">How it works</a>
-                        <a href="/testimonials">Testimonials</a>
-                        <a href="/careers">Careers</a>
-                        <a href="/terms">Terms of Service</a>
-                    </div>
-                </div>
-                <div className="footer-link-wrapper">
-                    <div className="footer-link-items">
-                        <h2>Services</h2>
-                        <a href="/services">Full Stack</a>
-                        <a href="/services">Frontend</a>
-                        <a href="/services">Backend</a>
-                        <a href="/services">Design</a>
-                    </div>
-                </div>
-                <div className="footer-link-wrapper">
-                    <div className="footer-link-items">
-                        <h2>Contact Us</h2>
-                        <a href="/contact">Contact</a>
-                        <a href="/contact">Support</a>
-                        <a href="/contact">Destinations</a>
-                        <a href="/contact">Sponsorships</a>
-                    </div>
-                </div>
-                <div className="footer-link-wrapper">
-                    <div className="footer-link-items">
-                        <h2>Social Media</h2>
-                        <a href="/">Instagram</a>
-                        <a href="/">Facebook</a>
-                        <a href="/">Youtube</a>
-                        <a href="/">Twitter</a>
-                    </div>
-                </div>
-            </div>
+
             <section className="social-media">
                 <div className="social-media-wrap container">
                     <div className="footer-logo">
